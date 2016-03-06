@@ -71,7 +71,8 @@ As an example, if you wanted to deny all traffic from
 you could create a rule as such:
 
 ```
-$fw = IPChains->new(	Source 		=> 	"192.168.100.0",
+$fw = IPChains->new(	
+			Source 		=> 	"192.168.100.0",
 			SourceMask 	=>	"24",
 			Dest		=>	"192.168.1.0",
 			DestMask	=>	"24",
