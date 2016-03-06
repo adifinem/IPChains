@@ -1,11 +1,11 @@
-NOTICE: This module is old. _Really old_. So is ipchains in 
+**NOTICE:** This module is old. _Really old_. So is ipchains in 
 general. I suppose if you have a system old enough to have 
 ipchains (and not iptables or better) then it might work 
 there and be useful. Use at your own discretion, if at all!
 
 -----------------------------------------------------------------
 
-Copyright (c) 2016 Jessica Hutchison (Formerly Jessica Quaintance). 
+Copyright (c) 2016 Jessica Hutchison *(Formerly Jessica Quaintance)*. 
 All rights reserved. This package is free software; you can 
 redistribute it and/or modify it under the same terms as Perl itself 
 (see LICENSE), with the exception of the libipfwc.c, ipchains.c, 
@@ -30,9 +30,11 @@ or bug reports about such, please email j@splatlabs.com.
 
 To build this module, run the following commands:
 
+```
     perl Makefile.PL
     make
     make install
+```
 
 To use this module you'll need to have several features enabled
 in your kernel. From the ipchains README:
@@ -67,6 +69,7 @@ As an example, if you wanted to deny all traffic from
 192.168.100.0/24 going to 192.168.1.0/24, and log all attempts,
 you could create a rule as such:
 
+```
 $fw = IPChains->new(Source 		=> 	"192.168.100.0",
    		    SourceMask 	 	=>	"24",
 		    Dest		=>	"192.168.1.0",
@@ -76,16 +79,19 @@ $fw = IPChains->new(Source 		=> 	"192.168.100.0",
 	 	    );
 
 $fw->append("input");
+```
 
 (Note that "input" is the chain you're applying the rule to., and
 masks can also be written in the 255.255.255.0 notation).
 Then, to list the results you could clear the options, set
 the Verbose option, then call the list() method:
 
+```
 $fw->clopts();
 $fw->attribute(Verbose, 1);
 $fw->list("input");
-		
+```
+
 Available options, attributes and syntax are listed in the POD
 documentation contained in IPChains.pm. 
 
