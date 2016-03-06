@@ -5,11 +5,11 @@ there and be useful. Use at your own discretion, if at all!
 
 -----------------------------------------------------------------
 
-Copyright (c) 2016 Jessica Hutchison *(Formerly Jessica Quaintance)*. 
+Copyright (c) 2016 Jessica Hutchison *(Authors/JESSICAQ)*. 
 All rights reserved. This package is free software; you can 
 redistribute it and/or modify it under the same terms as Perl itself 
 (see LICENSE), with the exception of the libipfwc.c, ipchains.c, 
-and the files in include/ which  have separate terms derived from 
+and the files in include/ which have separate terms derived from 
 those of the original ipchains sources (see LICENSE.ipchains). 
 Please see README.ipchains for the README that was included with the
 original source code for ipchains and contains copyrights and
@@ -39,7 +39,8 @@ To build this module, run the following commands:
 To use this module you'll need to have several features enabled
 in your kernel. From the ipchains README:
 
---
+---
+
 This module will not (yet) work with the 2.3.x or 2.4.x kernel series,
 and there is no support planned as iptables is the norm for those.
 
@@ -52,7 +53,7 @@ tell that your current kernel is compiled with this by looking for
 /proc/net/ip_fwchains' - if it exists, then your kernel is ready for
 the ipchains utility.
 
---
+---
 
 To use features such as IP Masquerading, IP Forwarding, IP Aliasing, 
 etc., you will have to also enable these individually in your
@@ -70,12 +71,12 @@ As an example, if you wanted to deny all traffic from
 you could create a rule as such:
 
 ```
-$fw = IPChains->new(Source 		=> 	"192.168.100.0",
-   		    SourceMask 	 	=>	"24",
-		    Dest		=>	"192.168.1.0",
-		    DestMask		=>	"24",
-		    Rule		=>	"DENY",
-		    Log			=>	"1"
+$fw = IPChains->new(	Source 		=> 	"192.168.100.0",
+			SourceMask 	=>	"24",
+			Dest		=>	"192.168.1.0",
+			DestMask	=>	"24",
+			Rule		=>	"DENY",
+			Log		=>	"1"
 	 	    );
 
 $fw->append("input");
